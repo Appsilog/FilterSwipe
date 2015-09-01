@@ -5,9 +5,45 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="sd5-mY-ooL">
+            <objects>
+                <viewController storyboardIdentifier="RedFilterVC" id="tfP-oN-4Ib" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gkY-t5-0aP"/>
+                        <viewControllerLayoutGuide type="bottom" id="NiN-XH-cnh"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.14999999999999969" contentMode="scaleToFill" id="5KU-SQ-Pz3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.89759016039999995" green="0.25243139269999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3F-KW-ps5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="319"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="otv-KW-YKY">
+            <objects>
+                <viewController storyboardIdentifier="YellowFilterVC" automaticallyAdjustsScrollViewInsets="NO" id="FXo-nt-ANw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RyI-Tl-BLS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gxm-4m-nhS"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.10000000000000001" contentMode="scaleToFill" id="wFu-Hk-84X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.98550444839999995" green="0.76792490479999997" blue="0.054742373529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WdZ-42-Bfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="989"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FilterSwipe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="FilterSwipe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,15 +55,44 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XP4-Ga-aYb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnY-o0-GFy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PnY-o0-GFy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LK4-g8-suE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PnY-o0-GFy" secondAttribute="bottom" id="OTK-7g-kIm"/>
+                            <constraint firstAttribute="trailing" secondItem="PnY-o0-GFy" secondAttribute="trailing" id="UPq-RL-J95"/>
+                            <constraint firstItem="PnY-o0-GFy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e3s-6v-qUV"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="XP4-Ga-aYb" id="X9j-Jv-c56"/>
+                        <outlet property="scrollView" destination="PnY-o0-GFy" id="eL7-sX-qyQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="733" y="381"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9Va-OX-Hs6">
+            <objects>
+                <viewController storyboardIdentifier="BlueFilterVC" id="LJi-8f-Alo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MxJ-TZ-mxq"/>
+                        <viewControllerLayoutGuide type="bottom" id="JDL-MN-sEE"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.20000000000000001" contentMode="scaleToFill" id="5AM-HC-Weg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.31372549020000001" green="0.59215686270000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFq-ve-8de" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="1309"/>
         </scene>
     </scenes>
 </document>

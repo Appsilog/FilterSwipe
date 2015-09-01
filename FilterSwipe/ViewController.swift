@@ -12,22 +12,18 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cameraView: UIImageView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    weak var topImageView: UIImageView!
+    
     let cameraManager = CameraManager.sharedInstance
     
-    var viewControllers = Array(count:3, repeatedValue: UIViewController())
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let pvc = segue.destinationViewController as! UIPageViewController
-        pvc.dataSource = self
-        
-        
-        
-        
-        
-    }
+   
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         
         self.cameraManager.showAccessPermissionPopupAutomatically = true
         self.cameraManager.writeFilesToPhoneLibrary = false
@@ -37,20 +33,31 @@ class ViewController: UIViewController {
             self.addCameraToView()
         }
         
-                
-        
-        
-        
-//        let swiper = APSwipeViewControllers()
-//        swiper.wraps = true
-//        swiper.viewControllers = [FirstViewController(), SecondViewController(), ThirdViewController()]
-//        swiper.mainViewControllerIndex = 1
-//        
-//        
-        
-        
+
+       
     }
 
+    override func viewWillLayoutSubviews() {
+        let viewControllers = ["YellowFilterVC", "RedFilterVC", "BlueFilterVC"]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let deviceWidth = CGFloat(self.view.frame.width)
+        println(self.view.frame.width)
+        println(self.view.frame.height)
+        
+        let deviceHeight = CGFloat(self.view.frame.height)
+        
+        for (var i = 0; i < viewControllers.count;++i) {
+            let vc = storyboard.instantiateViewControllerWithIdentifier(viewControllers[i]) as! UIViewController
+            vc.view.frame = CGRect(x: CGFloat(deviceWidth) * CGFloat(i), y: 0, width: deviceWidth * 2, height: deviceHeight)
+            self.addChildViewController(vc)
+            self.scrollView!.addSubview(vc.view)
+            vc.didMoveToParentViewController(self)
+            
+        }
+        
+        self.scrollView!.contentSize = CGSizeMake(CGFloat(deviceWidth) * CGFloat(viewControllers.count), deviceHeight)
+        
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -78,15 +85,4 @@ class ViewController: UIViewController {
             
         }
     }
-
-}
-
-extension ViewController: UIPageViewControllerDataSource{
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-      return nil
-    }
-    
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        return nil
-    }
-}
+  }
