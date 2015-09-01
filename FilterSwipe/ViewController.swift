@@ -37,18 +37,17 @@ class ViewController: UIViewController {
        
     }
 
-    override func viewWillLayoutSubviews() {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         let viewControllers = ["YellowFilterVC", "RedFilterVC", "BlueFilterVC"]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let deviceWidth = CGFloat(self.view.frame.width)
-        println(self.view.frame.width)
-        println(self.view.frame.height)
-        
-        let deviceHeight = CGFloat(self.view.frame.height)
-        
+        let deviceWidth = self.scrollView.frame.size.width
+        let deviceHeight = self.scrollView.frame.size.height
+     
         for (var i = 0; i < viewControllers.count;++i) {
             let vc = storyboard.instantiateViewControllerWithIdentifier(viewControllers[i]) as! UIViewController
-            vc.view.frame = CGRect(x: CGFloat(deviceWidth) * CGFloat(i), y: 0, width: deviceWidth * 2, height: deviceHeight)
+            vc.view.frame = CGRect(x: CGFloat(deviceWidth) * CGFloat(i), y: 0, width: deviceWidth, height: deviceHeight)
             self.addChildViewController(vc)
             self.scrollView!.addSubview(vc.view)
             vc.didMoveToParentViewController(self)
@@ -56,6 +55,12 @@ class ViewController: UIViewController {
         }
         
         self.scrollView!.contentSize = CGSizeMake(CGFloat(deviceWidth) * CGFloat(viewControllers.count), deviceHeight)
+        
+        
+    }
+    override func viewWillLayoutSubviews() {
+       
+        
         
     }
     override func viewWillAppear(animated: Bool) {
