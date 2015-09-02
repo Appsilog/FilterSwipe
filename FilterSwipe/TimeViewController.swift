@@ -12,14 +12,20 @@ class TimeViewController: FilterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var timeLabel = UILabel(frame: CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2, width: 200, height: 200))
-       // timeLabel.text = "12:00am"
+        var timeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        timeLabel.center = view.center
         
-        let attributes = [
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName : UIFont.systemFontOfSize(50/0)
-        ]
-        timeLabel.text = "12:00am"
+        
+        timeLabel.font = UIFont.systemFontOfSize(50.0)
+        timeLabel.textColor = .whiteColor()
+        timeLabel.textAlignment = .Center
+        
+        let date = NSDate()
+        var formatter = NSDateFormatter();
+        formatter.dateFormat = "H:mma";
+        let defaultTimeZoneStr = formatter.stringFromDate(date);
+        var timestamp = defaultTimeZoneStr
+        timeLabel.text = timestamp
         
         self.view.addSubview(timeLabel)
         // Do any additional setup after loading the view.
