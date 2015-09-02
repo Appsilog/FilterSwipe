@@ -17,6 +17,12 @@
 		69A33B201B8FC9DC006E942B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A33B1F1B8FC9DC006E942B /* SecondViewController.swift */; };
 		69A33B221B8FC9E9006E942B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A33B211B8FC9E9006E942B /* ThirdViewController.swift */; };
 		69A65A441B942488002CC84E /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A65A431B942488002CC84E /* CameraManager.swift */; };
+		69F119031B964E5400FA8210 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F119021B964E5400FA8210 /* FilterViewController.swift */; };
+		69F119071B964EA200FA8210 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F119061B964EA200FA8210 /* TimeViewController.swift */; };
+		69F1190A1B964FB400FA8210 /* ClearFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F119091B964FB400FA8210 /* ClearFilterView.swift */; };
+		69F1190C1B96500B00FA8210 /* RedFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1190B1B96500B00FA8210 /* RedFilterView.swift */; };
+		69F1190E1B96510700FA8210 /* BaseFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1190D1B96510700FA8210 /* BaseFilterView.swift */; };
+		69F119101B9671BE00FA8210 /* BlueFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1190F1B9671BE00FA8210 /* BlueFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 		69A33B1F1B8FC9DC006E942B /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		69A33B211B8FC9E9006E942B /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		69A65A431B942488002CC84E /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		69F119021B964E5400FA8210 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		69F119061B964EA200FA8210 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		69F119091B964FB400FA8210 /* ClearFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearFilterView.swift; sourceTree = "<group>"; };
+		69F1190B1B96500B00FA8210 /* RedFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedFilterView.swift; sourceTree = "<group>"; };
+		69F1190D1B96510700FA8210 /* BaseFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFilterView.swift; sourceTree = "<group>"; };
+		69F1190F1B9671BE00FA8210 /* BlueFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueFilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,7 @@
 		69A33AF91B8FBED9006E942B /* FilterSwipe */ = {
 			isa = PBXGroup;
 			children = (
+				69F118FF1B964E1F00FA8210 /* Filters */,
 				69A33AFC1B8FBED9006E942B /* AppDelegate.swift */,
 				69A33AFE1B8FBED9006E942B /* ViewController.swift */,
 				69A33B001B8FBED9006E942B /* Main.storyboard */,
@@ -122,6 +135,27 @@
 				69A33B111B8FBED9006E942B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69F118FF1B964E1F00FA8210 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				69F119081B964F9000FA8210 /* FilterViews */,
+				69F119021B964E5400FA8210 /* FilterViewController.swift */,
+				69F119061B964EA200FA8210 /* TimeViewController.swift */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
+		69F119081B964F9000FA8210 /* FilterViews */ = {
+			isa = PBXGroup;
+			children = (
+				69F119091B964FB400FA8210 /* ClearFilterView.swift */,
+				69F1190B1B96500B00FA8210 /* RedFilterView.swift */,
+				69F1190D1B96510700FA8210 /* BaseFilterView.swift */,
+				69F1190F1B9671BE00FA8210 /* BlueFilterView.swift */,
+			);
+			name = FilterViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,11 +258,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F119101B9671BE00FA8210 /* BlueFilterView.swift in Sources */,
 				69A33B201B8FC9DC006E942B /* SecondViewController.swift in Sources */,
 				69A33B1E1B8FC9C7006E942B /* FirstViewController.swift in Sources */,
+				69F1190A1B964FB400FA8210 /* ClearFilterView.swift in Sources */,
+				69F119031B964E5400FA8210 /* FilterViewController.swift in Sources */,
+				69F1190E1B96510700FA8210 /* BaseFilterView.swift in Sources */,
 				69A33B221B8FC9E9006E942B /* ThirdViewController.swift in Sources */,
 				69A33AFF1B8FBED9006E942B /* ViewController.swift in Sources */,
+				69F1190C1B96500B00FA8210 /* RedFilterView.swift in Sources */,
 				69A65A441B942488002CC84E /* CameraManager.swift in Sources */,
+				69F119071B964EA200FA8210 /* TimeViewController.swift in Sources */,
 				69A33AFD1B8FBED9006E942B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

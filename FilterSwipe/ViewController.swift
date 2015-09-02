@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        scrollView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
         
         self.cameraManager.showAccessPermissionPopupAutomatically = true
         self.cameraManager.writeFilesToPhoneLibrary = false
@@ -39,15 +40,47 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+       
         
-        let viewControllers = ["YellowFilterVC", "RedFilterVC", "BlueFilterVC"]
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let deviceWidth = self.scrollView.frame.size.width
-        let deviceHeight = self.scrollView.frame.size.height
-     
+    }
+    
+
+    override func viewWillLayoutSubviews() {
+        
+        for vc in self.childViewControllers{
+            vc.willMoveToParentViewController(nil)
+            vc.view!?.removeFromSuperview()
+            vc.removeFromParentViewController()
+        }
+        
+        let frame = self.view.frame
+        
+        let clearVC = FilterViewController()
+        clearVC.filterView = ClearFilterView(frame: frame)
+        
+        let redVC = FilterViewController()
+        redVC.filterView = RedFilterView(frame: frame)
+        
+        let blueVC = FilterViewController()
+        blueVC.filterView = BlueFilterView(frame: frame)
+        
+        let timeVC = TimeViewController()
+        
+        let viewControllers = [clearVC, redVC, blueVC, timeVC]
+
+        setupScrollView(viewControllers)
+        
+    }
+    
+    func setupScrollView(viewControllers: [FilterViewController]){
+        let frame = self.view.frame
+        let deviceWidth = frame.width
+        let deviceHeight = frame.height
+        
         for (var i = 0; i < viewControllers.count;++i) {
-            let vc = storyboard.instantiateViewControllerWithIdentifier(viewControllers[i]) as! UIViewController
+            let vc = viewControllers[i] as FilterViewController
             vc.view.frame = CGRect(x: CGFloat(deviceWidth) * CGFloat(i), y: 0, width: deviceWidth, height: deviceHeight)
+        
             self.addChildViewController(vc)
             self.scrollView!.addSubview(vc.view)
             vc.didMoveToParentViewController(self)
@@ -56,13 +89,9 @@ class ViewController: UIViewController {
         
         self.scrollView!.contentSize = CGSizeMake(CGFloat(deviceWidth) * CGFloat(viewControllers.count), deviceHeight)
         
-        
+
     }
-    override func viewWillLayoutSubviews() {
-       
-        
-        
-    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
